@@ -15,7 +15,7 @@ gcc
 
 We have tested this with boost version 1.71.0 and gcc version 4.2.1
 
-You can compile the application with the command `<make>`
+You can compile the application with the command `make`
 
 An example edge file from the simulated dataset can be found here: https://drive.google.com/file/d/1osPUDSJ9BBwEoegCvom9yaBM9iZ-BCfA/view?usp=sharing
 
@@ -26,12 +26,12 @@ You will use nano-tools-stream.cpp to stream the edge file. In order to stream t
 It is also included in this repository as a submodule. 
 
 You can stream an edge file with the command:
-`<./nano-tools-stream [edge file] [random seed]>`
+`./nano-tools-stream [edge file] [random seed]`
  With the edge file provided, you can stream it with the command:
- `<./nano-tools-stream sim-reads25k_ov1000.edges 1`
+ `./nano-tools-stream sim-reads25k_ov1000.edges 1`
 
 If you want to feed this stream into our program for processing, you can do this using the pipe like so:
- `<./nano-tools-stream sim-reads25k_ov1000.edges 1 | ./stream_cc`
+ `./nano-tools-stream sim-reads25k_ov1000.edges 1 | ./stream_cc`
 
- 
+
 
