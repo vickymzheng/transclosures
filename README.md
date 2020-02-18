@@ -7,7 +7,7 @@ The simulated dataset can be found here: https://drive.google.com/file/d/1itq6n2
 The real world dataset can be found here: https://github.com/LomanLab/mockcommunity
 
 Once you have downloaded the simulated data, you can uncompress it with the command: 
-gunzip sim_reads25k.fasta.gz
+`gunzip sim_reads25k.fasta.gz`
 
 An example edge file from the simulated dataset can be found here: https://drive.google.com/file/d/1osPUDSJ9BBwEoegCvom9yaBM9iZ-BCfA/view?usp=sharing
 
