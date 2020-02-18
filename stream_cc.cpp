@@ -608,9 +608,9 @@ int main(int argc, char* argv[]) {
   desc.add_options()
   ("help,h", "print usage message")
   ("output,o", po::value<std::string>(), "Output file names")
-  ("component_size,c", po::value<int>(), "Component Threshold")
+  ("component_size,c", po::value<int>(), "Component Size Threshold")
   ("irreducible,i", po::value<std::string>(), "Irreducible Edge file name to write to")
-  ("threshold,t", po::value<int>(), "Overlap Threshold");
+  ("threshold,t", po::value<int>(), "Overlap Length Threshold");
   
   po::variables_map vm;        
   po::store(po::parse_command_line(argc, argv, desc), vm);
