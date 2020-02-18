@@ -13,7 +13,9 @@ An example edge file from the simulated dataset can be found here: https://drive
 
 Edge files must follow the format:
 
-```read_id1		read_id2	readlen1	readlen2	overlaplen	read1_orient	read2_orient```
+```
+read_id1	read_id2	readlen1	readlen2	overlaplen	read1_orient	read2_orient
+```
 
 
 Our software is located in stream_cc.cpp. In order to compile it, you must have: 
