@@ -42,12 +42,14 @@ You can get instructions on how to use our program with the command:
 
 `./stream_cc -h`
 
-stream_cc produces 8 output files: 
-* default_out.component_convergence
-* default_out.component_sizes
-* default_out.irreducible_degree
-* default_out.irreducible_edges
-* default_out.removal_rate
-* default_out.storage_rate
-* default_out.trans_mapping
-* default_out.trans_stats
+stream_cc produces 6 output files: 
+* default_out.component_convergence - Each line entry is the number of components seen at that time. So if you see the number 8 on line 199990, this means there are 8 components after processing the 199990th node.
+* default_out.component_sizes - The first column of this file gives component ids while the second column gives the size. This lists all components found at the end of processing
+* default_out.irreducible_edges - This file gives our final irreducible graph at the end of processing. The first column is source nodes and the second column is target nodes.
+* default_out.storage_rate - Each line entry is the number of nodes stored at that time. So if you see the number 3010 on line 199990, this means there are 3010 nodes stored after processing the 199990th node.
+* default_out.trans_mapping - This gives the component mapping of each node (from the paper, this is UF). The first column is a node id and the second column is the component it is mapped to.
+* default_out.trans_stats - This gives a summary of our application's findings.
+
+Note that on the example data set provided, our application took about 2 minutes to finish running. 
+
+
