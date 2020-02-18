@@ -38,5 +38,16 @@ If you want to feed this stream into our program for processing, you can do this
 
  ```./nano-tools-stream sim-reads25k_ov1000.edges 1 | ./stream_cc```
 
+You can get instructions on how to use our program with the command:
 
+`./stream_cc -h`
 
+stream_cc produces 8 output files: 
+..* default_out.component_convergence
+..* default_out.component_sizes
+..* default_out.irreducible_degree
+..* default_out.irreducible_edges
+..* default_out.removal_rate
+..* default_out.storage_rate
+..* default_out.trans_mapping
+..* default_out.trans_stats
