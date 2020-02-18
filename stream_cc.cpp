@@ -497,16 +497,12 @@ int trans_closures_stream(std::unordered_map<int, std::vector<int> >& trans_adja
 
   std::string storage_rate_filename = output_file_prefix + ".storage_rate";
   std::string component_convergence_filename = output_file_prefix + ".component_convergence";
-  std::string removal_rate_filename = output_file_prefix + ".removal_rate";
 
   std::ofstream component_file;
   component_file.open (component_convergence_filename); 
 
   std::ofstream storage_file;
   storage_file.open (storage_rate_filename);
-
-  std::ofstream removal_rate_file;
-  removal_rate_file.open (removal_rate_filename);
 
   std::vector<edge> to_process;
   edge curr_edge; 
@@ -526,19 +522,11 @@ int trans_closures_stream(std::unordered_map<int, std::vector<int> >& trans_adja
       std::list<edge> incoming_edges; 
       std::list<edge> outgoing_edges; 
 
-      int num_edges_to_process = to_process.size();
       // This line documents the number of components there are in the graph
       component_file << component_members.size() << std::endl; 
 
-      int possible_edges_processed = find_non_articulate_transitive_nodes(to_process, curr_read, trans_adjacency_list, trans_comp, component_mapping, new_removed_nodes, incoming_edges, outgoing_edges);
+      find_non_articulate_transitive_nodes(to_process, curr_read, trans_adjacency_list, trans_comp, component_mapping, new_removed_nodes, incoming_edges, outgoing_edges);
 
-      int num_edges_after_processing = incoming_edges.size() + outgoing_edges.size();
-      // Collect stats on how many edges were removed for a node
-      // removal_rate_file << curr_read << '\t' << complete_adjacency_list[curr_read].size() << '\t' << num_edges_to_process << '\t' << num_edges_after_processing << std::endl; 
-      
-      // There is a distinction between this line and the line prior because contained nodes count towards the degree
-      removal_rate_file << curr_read << '\t' << complete_adjacency_list[curr_read].size() << '\t' << possible_edges_processed << '\t' << num_edges_after_processing << std::endl; 
-      
       // After find containment, all that is left in incoming_edges and outgoing edges are the nodes that were added to the graph. Not the ones to be deleted 
       // Update the component mapping before we remove the edges of removed nodes and update the graph
       update_components(curr_read, incoming_edges, outgoing_edges, new_removed_nodes, component_mapping, component_members,trans_adjacency_list); 
@@ -591,7 +579,7 @@ int trans_closures_stream(std::unordered_map<int, std::vector<int> >& trans_adja
 
   component_file.close();
   storage_file.close();
-  degree_stats(trans_adjacency_list, trans_comp, irreducible_nodes, output_file_prefix);
+  // degree_stats(trans_adjacency_list, trans_comp, irreducible_nodes, output_file_prefix);
   return max_number_of_reads; 
 }
 
@@ -722,11 +710,5 @@ int main(int argc, char* argv[]) {
   write_component_mappings(component_mapping, trans_mapping_file);
   trans_mapping_file.close();
 
-  std::cout << "Using Boost "     
-          << BOOST_VERSION / 100000     << "."  // major version
-          << BOOST_VERSION / 100 % 1000 << "."  // minor version
-          << BOOST_VERSION % 100                // patch level
-          << std::endl;
-  
   return 0;
 } // main
