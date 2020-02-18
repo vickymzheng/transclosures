@@ -607,10 +607,10 @@ int main(int argc, char* argv[]) {
   // The third is description
   desc.add_options()
   ("help,h", "print usage message")
-  ("output,o", po::value<std::string>(), "Output file names")
-  ("component_size,c", po::value<int>(), "Component Size Threshold")
-  ("irreducible,i", po::value<std::string>(), "Irreducible Edge file name to write to")
-  ("threshold,t", po::value<int>(), "Overlap Length Threshold");
+  ("output,o", po::value<std::string>(), "Output file name, default will be: default_out")
+  ("component_size,c", po::value<int>(), "Component Size Threshold, default will be 10")
+  ("irreducible,i", po::value<std::string>(), "Irreducible Edge file name to write to, default will be: default_out")
+  ("threshold,t", po::value<int>(), "Overlap Length Threshold, default will be 0");
   
   po::variables_map vm;        
   po::store(po::parse_command_line(argc, argv, desc), vm);
