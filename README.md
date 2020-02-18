@@ -17,10 +17,10 @@ Edge files must follow the format:
 
 
 Our software is located in stream_cc.cpp. In order to compile it, you must have: 
-boost (to be able to use lboost_program_options)
-gcc
+`boost` (to be able to use `lboost_program_options`)
+`gcc`
 
-We have tested this with boost version 1.71.0 and gcc version 4.2.1
+We have tested this with `boost` version 1.71.0 and `gcc`version 4.2.1
 
 You can compile the application with the command `make`
 
