@@ -53,6 +53,6 @@ stream_cc produces 6 output files:
 * default_out.trans_mapping - This gives the component mapping of each node (from the paper, this is UF). The first column is a node id and the second column is the component it is mapped to.
 * default_out.trans_stats - This gives a summary of our application's findings.
 
-Note that on the example data set provided, our application took about 2 minutes to finish running. 
+Note that on the example data set provided, our application took about 2 minutes to finish running on 200,00 reads. 
 
 
