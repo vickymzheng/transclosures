@@ -1,3 +1,6 @@
 [submodule "parallel-hashmap"]
 	path = parallel-hashmap
 	url = https://github.com/greg7mdp/parallel-hashmap.git
+[submodule "nano-tools"]
+	path = nano-tools
+	url = git@gitlab.com:SCoRe-Group/nano-tools.git
